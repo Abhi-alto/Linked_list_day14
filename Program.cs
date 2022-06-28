@@ -5,4 +5,3 @@ List.add(56);
 List.add(30);
 List.add(70);
 List.print();
-
