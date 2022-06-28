@@ -26,6 +26,18 @@ namespace LinkedList
             Console.WriteLine("Node added with data " + temp.next.data);
 
         }
+        public void append(int a)
+        {
+            Node node = new Node(a);
+            Node temp = head;
+            while (temp.next != null)
+            {
+                temp = temp.next;
+            }
+            temp.next = node;
+            Console.WriteLine("Node appended with data " + temp.next.data);
+
+        }
         public void print()
         {
             Node temp = this.head;
