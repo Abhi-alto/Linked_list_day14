@@ -8,22 +8,23 @@ namespace LinkedList
     public class linked_list
     {
         internal Node head;
-        public void add(int a)
+        public void create(int a)
         {
             Node node = new Node(a);
-            if (this.head == null)
-            {
-                this.head = node;
-            }
-            else
-            {
-                Node temp = head;
-                while (temp.next != null)
-                {
-                    temp = temp.next;
-                }
-                temp.next = node;
-            }
+            this.head = node;
+            Console.WriteLine("Node created with "+head.data);
+        }
+        public void add(int a)
+        {
+             Node node = new Node(a);
+             Node temp = head;
+             while (temp.next != null)
+             {
+                 temp = temp.next;
+             }
+            temp.next = node;
+            Console.WriteLine("Node added with data " + temp.next.data);
+
         }
         public void print()
         {
