@@ -34,7 +34,36 @@ namespace LinkedList
                 Console.WriteLine("Node appended with data " + temp.next.data);
             }
         }
-        public void search(int find)            //searching for a particular node
+        public void insert(int inser, int position)              //adding nodes to a particular position
+        {
+            Node node = new Node(inser);
+            Node temp = head;
+            int posi = 1;
+            if (position < 1)
+            {
+                Console.WriteLine("Wrong position");
+            }
+            else if (position == 1)
+            {
+                Node newNode = node;
+                newNode.next = temp;
+                head = newNode;
+                Console.WriteLine("Inserted new node with data " + newNode.data);
+            }
+            else
+            {
+                while (posi != position - 1)
+                {
+                    temp = temp.next;
+                    posi++;
+                }
+                Node newNode = node;
+                newNode.next = temp.next;
+                temp.next = newNode;
+                Console.WriteLine("Inserted new node with data " + newNode.data);
+            }
+        }
+        public int search(int find)            //searching for a particular node
         {
             Node node = new Node(find);
             Node temp = head;
@@ -42,7 +71,7 @@ namespace LinkedList
             bool present = true;
             if (head == null )                  //if there is no node
             {
-                Console.WriteLine("Element not present"); 
+                return 0;
             }
             else                                
             {
@@ -59,10 +88,11 @@ namespace LinkedList
                 if (present)
                 {
                     position++;
-                    Console.WriteLine("Position of  the searched node is " + position);
+                    //Console.WriteLine("Position of  the searched node is " + position);
+                    return position;
                 }
                 else
-                    Console.WriteLine("Element not present");
+                    return 0;
             }
         }
         public void print()                //printing the nodes
