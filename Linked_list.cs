@@ -18,44 +18,51 @@ namespace LinkedList
         {
             Node node = new Node(a);
             Node temp = head;
-            while (temp.next != null)
+            if (temp == null)
             {
-                temp = temp.next;
-            }
-            temp.next = node;
-            Console.WriteLine("Node appended with data " + temp.next.data);
-        }
-        public void deleteFirst()                   //deleting the first node
-        {
-            Console.WriteLine("First element is "+head.data);
-            Node temp = head;
-            if (temp != null)
-                head = temp.next;
-            else
-                Console.WriteLine("LinkedList is empty");
-
-        }
-        public void deleteLast()                   //deleting the last node
-        {
-            Node temp = head;
-
-            if (head == null)
-            {
-                Console.WriteLine("LinkedList is empty");
-            }
-            else if (head.next == null)
-            {
-                Console.WriteLine("The last element is " + temp.data);
-                head = null;
+                Console.WriteLine("List is empty");
+                head = node;
+                Console.WriteLine("Node appended with data " + head.data);
             }
             else
             {
-                while (temp.next.next != null)
+                while (temp.next != null)
                 {
                     temp = temp.next;
                 }
-                Console.WriteLine("The last element is " + temp.next.data);
-                temp.next = null;
+                temp.next = node;
+                Console.WriteLine("Node appended with data " + temp.next.data);
+            }
+        }
+        public void search(int find)            //searching for a particular node
+        {
+            Node node = new Node(find);
+            Node temp = head;
+            int position = 1;
+            bool present = true;
+            if (head == null )                  //if there is no node
+            {
+                Console.WriteLine("Element not present"); 
+            }
+            else                                
+            {
+                while (temp.data != find )                  
+                {
+                    if (temp.next == null)                  //if we are at the last node
+                    {
+                        present = false;
+                        break;
+                    }
+                    temp = temp.next;
+                    position++;
+                }
+                if (present)
+                {
+                    position++;
+                    Console.WriteLine("Position of  the searched node is " + position);
+                }
+                else
+                    Console.WriteLine("Element not present");
             }
         }
         public void print()                //printing the nodes
