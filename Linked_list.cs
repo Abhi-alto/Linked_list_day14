@@ -29,10 +29,36 @@ namespace LinkedList
         {
             Console.WriteLine("First element is "+head.data);
             Node temp = head;
-            head = temp.next;
+            if (temp != null)
+                head = temp.next;
+            else
+                Console.WriteLine("LinkedList is empty");
 
         }
-         public void print()                //printing the nodes
+        public void deleteLast()                   //deleting the last node
+        {
+            Node temp = head;
+
+            if (head == null)
+            {
+                Console.WriteLine("LinkedList is empty");
+            }
+            else if (head.next == null)
+            {
+                Console.WriteLine("The last element is " + temp.data);
+                head = null;
+            }
+            else
+            {
+                while (temp.next.next != null)
+                {
+                    temp = temp.next;
+                }
+                Console.WriteLine("The last element is " + temp.next.data);
+                temp.next = null;
+            }
+        }
+        public void print()                //printing the nodes
         {
             Node temp = this.head;
             while (temp != null)
