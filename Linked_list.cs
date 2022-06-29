@@ -34,6 +34,25 @@ namespace LinkedList
                 Console.WriteLine("Node appended with data " + temp.next.data);
             }
         }
+        public void delete(int deleteNode,int position)             //deleting node at a particular position
+        {
+            Node node = new Node(deleteNode);
+            Node temp = head;
+            int posi = 1;
+            if (head == null)
+            {
+                Console.WriteLine("LinkedList is empty");
+            }
+            else 
+            { 
+                while (posi!=(position-1))
+                {
+                    temp = temp.next;
+                    posi++;
+                }
+                temp.next = temp.next.next;
+            }
+        }
         public void insert(int inser, int position)              //adding nodes to a particular position
         {
             Node node = new Node(inser);
@@ -87,13 +106,22 @@ namespace LinkedList
                 }
                 if (present)
                 {
-                    position++;
-                    //Console.WriteLine("Position of  the searched node is " + position);
                     return position;
                 }
                 else
                     return 0;
             }
+        }
+        public void size()
+        {
+            Node temp = head;
+            int size = 0;
+            while(temp != null)
+            {
+                temp = temp.next;
+                size++;
+            }
+            Console.WriteLine(size);
         }
         public void print()                //printing the nodes
         {
