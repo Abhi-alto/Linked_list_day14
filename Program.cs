@@ -2,6 +2,10 @@
 Console.WriteLine("Welcome to the linked list");
 linked_list List = new linked_list();
 List.create(56);
-List.add(30);
-List.insert(70,1);
+List.append(30);
+List.append(70);
+Console.WriteLine("Before deletion of the first node ");
+List.print();
+List.deleteFirst();
+Console.WriteLine("After deletion of the first node ");
 List.print();

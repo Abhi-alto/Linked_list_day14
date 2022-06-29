@@ -14,15 +14,6 @@ namespace LinkedList
             this.head = node;
             Console.WriteLine("Node created with " + head.data);
         }
-        public void add(int b)                  //adding a node in the begining
-        {
-            Node node = new Node(b);
-            Node temp = head;
-            temp.next = head.next;
-            head = node;
-            head.next = temp;
-            Console.WriteLine("Node added with data " + head.data);
-        }
         public void append(int a)           //adding nodes to the end
         {
             Node node = new Node(a);
@@ -34,34 +25,12 @@ namespace LinkedList
             temp.next = node;
             Console.WriteLine("Node appended with data " + temp.next.data);
         }
-        public void insert(int inser,int position)              //adding nodes to a particular position
+        public void deleteFirst()                   //deleting the first node
         {
-            Node node = new Node(inser);
+            Console.WriteLine("First element is "+head.data);
             Node temp = head;
-            int posi = 1;
-            if (position < 1)
-            {
-                Console.WriteLine("Wrong position");
-            }
-            else if(position==1)
-            {
-                Node newNode = node;
-                newNode.next = temp;
-                head = newNode;
-                Console.WriteLine("Inserted new node with data " + newNode.data);
-            }
-            else
-            {
-                while (posi != position - 1)
-                {
-                    temp = temp.next;
-                    posi++;
-                }
-                Node newNode = node;
-                newNode.next = temp.next;
-                temp.next=newNode;
-                Console.WriteLine("Inserted new node with data "+newNode.data);
-            }
+            head = temp.next;
+
         }
          public void print()                //printing the nodes
         {
